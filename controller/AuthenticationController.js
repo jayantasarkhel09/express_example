@@ -9,9 +9,94 @@ class AuthenticationController {
     save(req,res)
     {
       //console.log(role);
-      
+      var mysql = require('mysql')
+      var connection = mysql.createConnection({
+      host: 'localhost',
+      user: 'root',
+      password: 'admin#123',
+     database: 'mydb'
+      });
 
-    	console.log(req.body.name);
+      connection.connect();
+      var name=req.body.name;
+      var email=req.body.email;
+      console.log("Connected!");
+        var sql = "INSERT INTO `user` (name, emailid) VALUES ('" +name + "','" + email + "')";
+  connection.query(sql, function (err, result) {
+    if (err) throw err;
+     res.redirect('/fetchi');
+  });
+   
+    }
+    fetchdata(req,res)
+    {
+        var mysql = require('mysql')
+      var connection = mysql.createConnection({
+      host: 'localhost',
+      user: 'root',
+      password: 'admin#123',
+     database: 'mydb'
+      });
+
+      connection.connect();
+     
+      console.log("Connected!");
+        var sql = "select * from user";
+  connection.query(sql, function (err, result) {
+    if (err) throw err;
+   res.render('test',{data:result});
+  });
+
+
+      console.log("jayanta");
+     
+
+  
+
+    }
+    fetchdelete(req,res)
+    {
+      var paramid=req.params.id;
+       var mysql = require('mysql')
+      var connection = mysql.createConnection({
+      host: 'localhost',
+      user: 'root',
+      password: 'admin#123',
+     database: 'mydb'
+      });
+
+      connection.connect();
+     
+      console.log("Connected!");
+      var sql='DELETE FROM user WHERE id = "' + paramid + '"';
+      //console.log(paramid);
+      connection.query(sql, function (err, result) {
+    if (err) throw err;
+     res.redirect('/fetchi');
+  });
+    }
+    fetchedit(req,res)
+    {
+       var paramid=req.params.id;
+       var mysql = require('mysql')
+      var connection = mysql.createConnection({
+      host: 'localhost',
+      user: 'root',
+      password: 'admin#123',
+     database: 'mydb'
+      });
+
+      connection.connect();
+     
+      console.log("Connected!");
+      var sql='select *from user WHERE id = "' + paramid + '"';
+      res.render('contacts');
+       connection.query(sql, function (err, result) {
+      if (err) throw err;
+
+      res.render('edit',{data:result[0]});
+      });
+
     }
 }
 

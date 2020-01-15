@@ -1,0 +1,35 @@
+<html>
+
+<h2 align="center">user maintain system</h1>
+<h3 align="right"><a href="/contact/">add</h3>
+  <table align="center">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">name</th>
+                        <th scope="col">Emails</th>
+                         <th scope="col">Action</th>
+
+                      
+                    </tr>
+                </thead>
+                <tbody>
+                    <% data.forEach((player, index) => { %>
+                        <tr>
+                           
+                            <td><%= player.id %></td>
+                            <td><%= player.name %></td>
+                            <td><%= player.emailid %></td>
+                            
+                            <td>
+                                <a href="/edit/<%= player.id %>" target="_blank" rel="noopener" class="btn btn-sm btn-success">Edit</a>
+                                <a href="/delete/<%= player.id %>" class="btn btn-sm btn-danger">Delete</a>
+                                
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+
+
+</html>
