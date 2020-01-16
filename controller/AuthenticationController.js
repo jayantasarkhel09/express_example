@@ -98,6 +98,31 @@ class AuthenticationController {
       });
 
     }
+
+
+
+    details(req,res)
+    {
+      var paramid=req.params.id;
+      var mysql = require('mysql')
+      var connection = mysql.createConnection({
+      host: 'localhost',
+      user: 'root',
+      password: 'admin#123',
+      database: 'mydb'
+      });
+      var sql='select *from user WHERE id = "' + paramid + '"';
+      console.log(paramid);
+      connection.query(sql, function (err, result) 
+      {
+      if (err) throw err;
+
+      res.render('details',{data:result});
+
+      });
+      //   var paramid=req.params.id;
+
+    }
 }
 
 
