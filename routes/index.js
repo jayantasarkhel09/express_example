@@ -18,7 +18,7 @@ router.get('/', function(req, res, next)
 
 
 router.get('/fetchi',auth.fetchdata);
-router.get('/insert',mnc.insert);
+
 router.get('/delete/:id',auth.fetchdelete);
 router.get('/details/:id',auth.details);
 router.get('/edit/:id',auth.fetchedit);
@@ -30,6 +30,7 @@ router.get('/contact',function(req,res,next)
 	});
 
 router.post('/save',auth.save);
+router.get('/saves',mnc.insert);
 
 
 
