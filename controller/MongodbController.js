@@ -1,15 +1,11 @@
+const Product = require('../models/product.model');
 class MongodbController 
 {
+
 	insert(req,res)
 	{
-		//var MongoClient = require('mongodb').MongoClient;
-    const Product = require('../models/product.model');
-
-//Simple version, without validation or sanitation
-
-
-	
-	 var product1 = new Product({ name: 'Introduction to Mongoose', price: 10});
+		
+	 var product1 = new Product({ name: 'Introduction to Nodejs', price: 20});
 	 console.log("after product");
 	 product1.save(function (err, product1) {
       if (err) return console.error(err);
@@ -17,10 +13,11 @@ class MongodbController
     }); 
    
  
-
-
-
-	
+	}
+	async fetch(req,res)
+	{
+		var data=await Product.find({price:10});
+		console.log(data);
 
 	}
 

@@ -31,6 +31,7 @@ router.get('/contact',function(req,res,next)
 
 router.post('/save',auth.save);
 router.get('/saves',mnc.insert);
+router.get('/fetchs',mnc.fetch);
 
 
 
