@@ -5,7 +5,7 @@ let ProductSchema = new Schema({
     name: {type: String, required: true, max: 100},
     price: {type: Number, required: true},
 });
-mongoose.connect('mongodb://localhost:27017/user');
+/*mongoose.connect('mongodb://localhost:27017/user');*/
 
 // Export the model
 module.exports = mongoose.model('Product', ProductSchema);

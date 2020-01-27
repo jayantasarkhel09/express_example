@@ -1,3 +1,7 @@
+   var cookieParser = require('cookie-parser');
+    var session = require('express-session');
+
+
 class AuthenticationController {
      async signupWithCredentials (req, res)
       {
@@ -107,6 +111,41 @@ class AuthenticationController {
       //   var paramid=req.params.id;
 
     }
+
+    async userlogin(req,res)
+  {
+    console.log("going right");
+
+    var username=req.body.uname;
+    var password=req.body.psw
+    console.log(password);
+    if(username=='jayanta.sarkhel09@gmail.com'&& password=='jayanta100')
+    {
+      console.log("this is again a try");
+        session.user_id = 12;
+        console.log(session.user_id);
+      res.redirect('/my_secret_page');
+    }
+    else
+    {
+      console.log("not user");
+
+    }
+
+  }
+ logout(req,res)
+  {
+
+    console.log(session.user_id);
+     delete session.user_id;
+     console.log(session.user_id);
+  }
+  showall(req,res)
+  {
+    
+  res.render('products');
+    //console.log("products");
+  }
 }
 
 

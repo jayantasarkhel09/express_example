@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<meta name="description" content="Dynamic responsive Ecommerce free web template" />
+    <meta name="keywords" content="Ecommerce template, Ecommerce free responsive template, free template" />
+
+<body>
+
+
+                  <% for (var i = 0; i < data.length; i++) {%>
+                   <div class="card" style="width: 18rem;">
+                  <img class="card-img-top" src="..." alt="Card image cap">
+                      <h3><%= data[i].name %></h3>
+
+                      price<a><%= data[i].price %></a>
+                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                  </div>
+
+                   <%}%>
+</div>
+</body>
+</html>

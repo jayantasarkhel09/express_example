@@ -16,10 +16,31 @@ class MongodbController
 	}
 	async fetch(req,res)
 	{
-		var data=await Product.find({price:10});
-		console.log(data);
+		var data=await Product.find();
+		//console.log(data);
+		
+		res.render('result',{data});
 
 	}
+
+	async showall(req,res)
+	{
+		var data=await Product.find();
+		//console.log(data);
+		
+		res.render('product',{data});
+
+
+
+		Product.find({}).exec(function(err, product) {
+                if (err) throw err;
+                res.render('products', { data:product});
+            });
+
+
+	}
+	
+
 
 }
 
